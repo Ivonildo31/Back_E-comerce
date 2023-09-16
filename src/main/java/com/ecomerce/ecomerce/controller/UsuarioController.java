@@ -1,14 +1,16 @@
 package com.ecomerce.ecomerce.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ecomerce.ecomerce.DTO.UsuarioDTO;
 import com.ecomerce.ecomerce.models.Usuario;
 import com.ecomerce.ecomerce.services.UsuarioService;
 
@@ -25,5 +27,18 @@ public class UsuarioController {
 	public Usuario salvar(@RequestBody Usuario usuario) {
 		return usuarioService.salvar(usuario);
 	}
+
+	@CrossOrigin
+	@GetMapping("/todos")
+	public List<Usuario> buscarUsuarios() {
+	  return usuarioService.listarUsuario();
+	}
+
+	@CrossOrigin
+	@GetMapping("/buscarUsuarioPorId/{Id}")
+	public Usuario buscarPorId(@PathVariable(value = "Id") String id) {
+		return usuarioService.buscarUsuarioPorId(id);
+	}
+
     
 }

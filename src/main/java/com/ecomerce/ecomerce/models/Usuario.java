@@ -23,7 +23,7 @@ public class Usuario implements Serializable {
     private String nome;
     @Column(nullable = false, length = 20)
     private String email;
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false)
     private String senha;
     
     public static long getSerialversionuid() {
