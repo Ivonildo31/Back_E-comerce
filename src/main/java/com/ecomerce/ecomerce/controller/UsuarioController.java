@@ -1,6 +1,7 @@
 package com.ecomerce.ecomerce.controller;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -35,8 +36,8 @@ public class UsuarioController {
 	}
 
 	@CrossOrigin
-	@GetMapping("/buscarUsuarioPorId/{Id}")
-	public Usuario buscarPorId(@PathVariable(value = "Id") String id) {
+	@GetMapping("/buscarUsuarioPorId/{id}")
+	public Usuario buscarPorId(@PathVariable(value = "id") UUID id) {
 		return usuarioService.buscarUsuarioPorId(id);
 	}
 

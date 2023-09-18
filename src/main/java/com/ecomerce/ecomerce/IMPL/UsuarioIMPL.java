@@ -1,6 +1,8 @@
 package com.ecomerce.ecomerce.IMPL;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 import javax.transaction.Transactional;
 
@@ -49,15 +51,15 @@ public class UsuarioIMPL implements UsuarioService{
     }
 
     @Override
-    public Usuario buscarUsuarioPorId(String id) {
+    public Usuario buscarUsuarioPorId(UUID id) {
 
-        Usuario user = usuarioRepository.buscarPorEmail(id);
+        Optional<Usuario> user = usuarioRepository.findById(id);
 
         if (user == null) {
             throw new MsgGenericaPersonalizadaException("Usuário não Existe base de dados!");
         }
 
-        return user;
+        return user.get();
     }
     
 }

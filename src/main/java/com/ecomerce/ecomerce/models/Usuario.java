@@ -3,11 +3,13 @@ package com.ecomerce.ecomerce.models;
 import java.io.Serializable;
 import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,10 +23,15 @@ public class Usuario implements Serializable {
 
     @Column(nullable = false, length = 20)
     private String nome;
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false, length = 50)
     private String email;
     @Column(nullable = false)
     private String senha;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private EnderecoUsuario enderecoUsuario;
+
+
     
     public static long getSerialversionuid() {
         return serialVersionUID;
@@ -52,6 +59,12 @@ public class Usuario implements Serializable {
     }
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+    public EnderecoUsuario getEnderecoUsuario() {
+        return enderecoUsuario;
+    }
+    public void setEnderecoUsuario(EnderecoUsuario enderecoUsuario) {
+        this.enderecoUsuario = enderecoUsuario;
     }
     
     

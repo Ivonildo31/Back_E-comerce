@@ -1,6 +1,7 @@
 package com.ecomerce.ecomerce.services;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,6 @@ public interface UsuarioService {
 
     public List<Usuario> listarUsuario();
 
-    public Usuario buscarUsuarioPorId(String id);
+    public Usuario buscarUsuarioPorId(UUID email);
     
 }
