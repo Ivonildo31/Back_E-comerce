@@ -34,6 +34,7 @@ public class UsuarioIMPL implements UsuarioService{
         user.setNome(usuarioDTO.getNome());
         user.setEmail(usuarioDTO.getEmail());
         user.setSenha(passwordEncoder().encode(usuarioDTO.getSenha()));
+        user.setEnderecoUsuario(usuarioDTO.getEnderecoUsuario());
 
         return usuarioRepository.save(user);
     }
